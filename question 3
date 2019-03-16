@@ -1,0 +1,10 @@
+x = int(input("Enter rows "))
+first_row =[1]
+for i in range(x):
+    print(first_row)
+    other=[]
+    other.append(first_row[0])
+    for i in range(len(first_row)-1):
+        other.append(first_row[i]+first_row[i+1])
+    other.append(first_row[-1])
+    first_row=other
