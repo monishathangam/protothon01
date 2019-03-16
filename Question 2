@@ -1,0 +1,14 @@
+import math
+a=[]
+a=(input("enter the number").split(','))
+b=[float(i) for i in a]
+print(b)
+b=[i*i for i in b]
+c=len(b)
+sum=0
+for i in b:
+    sum=sum+i
+mean = sum/c
+z=math.sqrt(mean)
+print(z)
+    
