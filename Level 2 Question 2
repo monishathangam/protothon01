@@ -1,0 +1,73 @@
+import csv
+import tkinter as tk 
+from tkinter import *
+from datetime import datetime
+import time
+import uuid
+
+window = tk.Tk() 
+window.geometry("500x300")
+
+tk.Label(window, text="Name").grid(row=2)
+
+e1 = tk.Entry(window)
+e1.grid(row=3, column=0)
+
+tk.Label(window, text="Mobile Number").grid(row=4)
+
+e2 = tk.Entry(window)
+e2.grid(row=5, column=0)
+
+tk.Label(window, text="Email").grid(row=6)
+
+e3 = tk.Entry(window)
+e3.grid(row=7, column=0)
+
+tk.Label(window, text="Institution").grid(row=8)
+
+e4 = tk.Entry(window)
+e4.grid(row=9, column=0)
+
+tk.Label(window,text="enter your search").grid(row=12)
+e5=tk.Entry(window)
+e5.grid(row=13,column=0)
+#date=time.localtime()
+
+now=datetime.now()
+ts=datetime.timestamp(now)
+print(ts)
+#csvstr = time.strftime('%H: %M: %S',timestamp)
+#time=[datetime.datetime.strftime(mydate,"%H:%M:%S")]
+csvstr=time.strftime("%H:%M:%S", time.localtime(int(ts)))
+print(csvstr)
+#csvstr=datetime.utcfromtimestamp(ts).strftime('%H:%M:%S')
+res=[]
+def rand():
+    res.append(uuid.uuid1())
+    res.append(e1.get())
+    res.append(e2.get())
+    res.append(e3.get())
+    res.append(e4.get())
+    res.append(csvstr)
+    res.append("\n")
+    return res
+
+'''def search():
+    d=e5.get()
+    with open('person1.csv',r) as csvfile:
+        read=csv.reader(csvfile)
+        data = [r for r in read]
+        return data'''
+
+row=['UUID','Name','PhoneNumber','Email','Institution']
+
+def Call():
+    with open('person1.csv', 'w',newline='\n') as csvFile:
+        writer = csv.writer(csvFile)
+        writer.writerow(row)
+        writer.writerow(rand())
+    
+B = Button(window,text= "Enter", command = Call).grid(row=10,column=0)
+#b1=Button(window,text="search",command=search).grid (row=14,column=0)
+
+r.mainloop()
