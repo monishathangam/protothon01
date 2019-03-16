@@ -1,0 +1,42 @@
+# include <stdio.h>
+
+int main() {
+
+    char operator;
+    int x;
+    double Number1,Number2;
+
+    printf("Enter an operator (+, -, *,/): ");
+    scanf("%c", &operator);
+
+    printf("Enter two operands: ");
+    scanf("%lf %lf",&Number1, &Number2);
+
+    switch(operator)
+    {
+        case '+':
+            printf("%.10lf + %.10lf = %.10lf",Number1, Number2, Number1 + Number2);
+            break;
+
+        case '-':
+            printf("%.10lf - %.10lf = %.10lf",Number1, Number2, Number1 - Number2);
+            break;
+
+        case '*':
+            printf("%.10lf * %.10lf = %.10lf",Number1, Number2, Number1 * Number2);
+            break;
+
+        case '/':
+            printf("%.10lf / %.10lf = %.10lf",Number1, Number2, Number1 / Number2);
+            if (Number2==0)
+            printf("error");
+            else
+            break;
+            
+
+        default:
+            printf("Error! operator is not correct");
+    }
+    
+    return 0;
+}
