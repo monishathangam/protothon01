@@ -1,0 +1,3 @@
+from itertools import permutations
+p = [''.join(p) for p in permutations('protosem')]
+p
