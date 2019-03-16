@@ -1,0 +1,7 @@
+words = input("Enter the paragraph : ")
+print('Paragraph : ',words)
+print(words.lower())
+print(words.upper())
+print(words.title())
+print(words.capitalize())
+
